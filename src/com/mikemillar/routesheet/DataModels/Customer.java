@@ -90,6 +90,19 @@ public class Customer {
         this.vehicles = vehicles;
     }
     
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerNumber=" + customerNumber +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                ", phones=" + phones +
+                ", email='" + email + '\'' +
+                ", notes='" + notes + '\'' +
+                ", vehicles=" + vehicles +
+                '}';
+    }
+    
     private class Address {
         
         private String address;

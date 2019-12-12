@@ -8,9 +8,19 @@ public class RepairOrder {
     private static int repairOrders = 0;
     
     private Vehicle vehicle;
+    private int vehicleYear;
+    private String vehicleMake;
+    private String vehicleModel;
+    private int vehicleMileage;
     private Customer customer;
+    private String customerName;
+    private int customerNumber;
     private Adviser adviser;
+    private String adviserName;
+    private int adviserNumber;
     private Technician tech;
+    private String technicianName;
+    private int technicianNumber;
     private int repairOrderNumber;
     private int tagNumber;
     private LocalDateTime timeCreated;
@@ -26,10 +36,18 @@ public class RepairOrder {
     private ArrayList<Jobs> repairJobs;
     private int currentJobs = 0;
     
-    public RepairOrder(Vehicle vehicle, Customer customer, Adviser adviser, int tagNumber, LocalDateTime timeCreated, LocalDateTime timeDue, String notes, ArrayList<Jobs> repairJobs, Boolean waiter) {
+    public RepairOrder(Vehicle vehicle, Customer customer, Adviser adviser, int tagNumber, LocalDateTime timeCreated, LocalDateTime timeDue, String notes, Boolean waiter) {
         this.vehicle = vehicle;
+        this.vehicleYear = vehicle.getYear();
+        this.vehicleMake = vehicle.getMake();
+        this.vehicleModel = vehicle.getModel();
+        this.vehicleMileage = vehicle.getLastMileage();
         this.customer = customer;
+        this.customerName = customer.getName();
+        this.customerNumber = customer.getCustomerNumber();
         this.adviser = adviser;
+        this.adviserName = adviser.getName();
+        this.adviserNumber = adviser.getCustomerNumber();
         this.repairOrderNumber = ++repairOrders;
         this.tagNumber = tagNumber;
         this.timeCreated = timeCreated;
@@ -39,7 +57,53 @@ public class RepairOrder {
         this.isWaiter = waiter;
     }
     
+    public void setTechnicianName() {
+        this.technicianName = this.tech.getName();
+    }
     
+    public void setTechnicianNumber() {
+        this.technicianNumber = this.tech.getCustomerNumber();
+    }
+    
+    public int getVehicleYear() {
+        return vehicleYear;
+    }
+    
+    public String getVehicleMake() {
+        return vehicleMake;
+    }
+    
+    public String getVehicleModel() {
+        return vehicleModel;
+    }
+    
+    public int getVehicleMileage() {
+        return vehicleMileage;
+    }
+    
+    public String getCustomerName() {
+        return customerName;
+    }
+    
+    public int getCustomerNumber() {
+        return customerNumber;
+    }
+    
+    public String getAdviserName() {
+        return adviserName;
+    }
+    
+    public int getAdviserNumber() {
+        return adviserNumber;
+    }
+    
+    public String getTechnicianName() {
+        return technicianName;
+    }
+    
+    public int getTechnicianNumber() {
+        return technicianNumber;
+    }
     
     public boolean isWaiter() {
         return isWaiter;
@@ -151,6 +215,21 @@ public class RepairOrder {
     
     public ArrayList<Jobs> getRepairJobs() {
         return repairJobs;
+    }
+    
+    @Override
+    public String toString() {
+        return "RepairOrder{" +
+                "vehicle=" + vehicle.getShortId() +
+                ", customer=" + customer.getName() +
+                ", adviser=" + adviser.getName() +
+                ", repairOrderNumber=" + repairOrderNumber +
+                ", tagNumber=" + tagNumber +
+                ", timeCreated=" + timeCreated +
+                ", timeDue=" + timeDue +
+                ", notes='" + notes + '\'' +
+                ", isWaiter=" + isWaiter +
+                '}';
     }
     
     private class Jobs {

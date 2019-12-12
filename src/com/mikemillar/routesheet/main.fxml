@@ -32,16 +32,6 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                 </columnResizePolicy>
                 <columns>
-                    <TableColumn text="Inactive">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="isInactive"/>
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn text="Inactive PO">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="isPartsInactive"/>
-                        </cellValueFactory>
-                    </TableColumn>
                     <TableColumn text="RO #">
                         <cellValueFactory>
                             <PropertyValueFactory property="repairOrderNumber"/>
@@ -54,37 +44,37 @@
                     </TableColumn>
                     <TableColumn text="Year">
                         <cellValueFactory>
-                            <PropertyValueFactory property="year"/>
+                            <PropertyValueFactory property="vehicleYear"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Make">
                         <cellValueFactory>
-                            <PropertyValueFactory property="make"/>
+                            <PropertyValueFactory property="vehicleMake"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Model">
                         <cellValueFactory>
-                            <PropertyValueFactory property="model"/>
+                            <PropertyValueFactory property="vehicleModel"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Mileage">
                         <cellValueFactory>
-                            <PropertyValueFactory property="lastMileage"/>
+                            <PropertyValueFactory property="vehicleMileage"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Customer Name">
                         <cellValueFactory>
-                            <PropertyValueFactory property="name"/>
+                            <PropertyValueFactory property="customerName"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Adviser">
                         <cellValueFactory>
-                            <PropertyValueFactory property="name"/>
+                            <PropertyValueFactory property="adviserName"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Technician">
                         <cellValueFactory>
-                            <PropertyValueFactory property="name"/>
+                            <PropertyValueFactory property="technicianName"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Time Due">

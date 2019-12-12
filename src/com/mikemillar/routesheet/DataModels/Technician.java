@@ -5,7 +5,7 @@ public class Technician extends Employee {
     private char skillLevel;
     
     public Technician() {
-    
+        super();
     }
     
     public Technician(char skillLevel) {

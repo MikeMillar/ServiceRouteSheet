@@ -16,7 +16,7 @@ public class Vehicle {
     
     public Vehicle(int ownedByCustNum, String VIN, int year, String make, String model, String color, int mileage, String notes) {
         this.ownedByCustNum = ownedByCustNum;
-        this.VIN = VIN;
+        this.VIN = VIN.toUpperCase();
         this.year = year;
         this.make = make;
         this.model = model;
@@ -24,6 +24,10 @@ public class Vehicle {
         this.lastMileage = mileage;
         this.notes = notes;
         this.linkedROs = new ArrayList<RepairOrder>();
+    }
+    
+    public String getShortId() {
+        return this.getVIN().substring(9);
     }
     
     public void setOwnedByCustNum(int ownedByCustNum) {
@@ -76,5 +80,20 @@ public class Vehicle {
     
     public ArrayList<RepairOrder> getLinkedROs() {
         return linkedROs;
+    }
+    
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "ownedByCustNum=" + ownedByCustNum +
+                ", VIN='" + VIN + '\'' +
+                ", year=" + year +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", lastMileage=" + lastMileage +
+                ", notes='" + notes + '\'' +
+                ", linkedROs=" + linkedROs +
+                '}';
     }
 }
