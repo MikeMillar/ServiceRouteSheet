@@ -1,5 +1,24 @@
 Service Route Sheet
 
+Main Display Idea Concept {
+    Active RO Tab {
+        Filterable by multiple sources
+        Displays all RO information in an organized fashion
+        Displays all current ROs until moved to an Inactive Tab
+    }
+    Inactive-Parts Ordered Tab {
+        Filterable by date and other RO filtering options from active
+        Closed RO's which parts have been ordered.
+        These tickets can been manually moved to Inactive Tab if needed.
+        Tickets will automatically get moved to Inactive after 45 days.
+        If new Active RO with matching vehicle is created, prompts user to move to Inactive
+    }
+    Inactive Tab {
+        Database of all previous tickets that are no longer active.
+        Filter by date, and other RO filtering options from active
+    }
+}
+
 Customer class {
     Needs to {
         - Create unique Customer # for each instance.
@@ -11,8 +30,8 @@ Customer class {
     variables {
         Customer Number
         Name
-        Address
-        Phone Numbers
+        Address (Inner class)
+        Phone Numbers (Inner class)
         Email
         Notes
         List of Vehicles
@@ -68,8 +87,8 @@ RepairOrder class {
         Elapsed Date
         Active/Inactive bool
         Ticket locked bool
-        Status
-        List of Jobs
+        Status (separate class)
+        List of Jobs (inner class)
         Service Advisor Assigned
         Technician Assigned
         Notes
@@ -96,7 +115,7 @@ Technician class {
 Advisor class {
     Needs to {
         - Assign employee #, and default information
-        - Track notes about advisor
+        - Track notes about adviser
     }
     variables {
         employee #
