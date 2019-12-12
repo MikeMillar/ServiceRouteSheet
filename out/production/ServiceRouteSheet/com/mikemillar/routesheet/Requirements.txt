@@ -1,0 +1,145 @@
+Service Route Sheet
+
+Main Display Idea Concept {
+    Active RO Tab {
+        Filterable by multiple sources
+        Displays all RO information in an organized fashion
+        Displays all current ROs until moved to an Inactive Tab
+    }
+    Inactive-Parts Ordered Tab {
+        Filterable by date and other RO filtering options from active
+        Closed RO's which parts have been ordered.
+        These tickets can been manually moved to Inactive Tab if needed.
+        Tickets will automatically get moved to Inactive after 45 days.
+        If new Active RO with matching vehicle is created, prompts user to move to Inactive
+    }
+    Inactive Tab {
+        Database of all previous tickets that are no longer active.
+        Filter by date, and other RO filtering options from active
+    }
+}
+
+Customer class {
+    Needs to {
+        - Create unique Customer # for each instance.
+        - Save and store all information relevant to the service customer.
+        - Be able to attach customer to vehicles. (Allow Vehicle linking)
+        - Allow retrieval of data as required.
+        - Be searchable by program.
+    }
+    variables {
+        Customer Number
+        Name
+        Address (Inner class)
+        Phone Numbers (Inner class)
+        Email
+        Notes
+        List of Vehicles
+    }
+}
+
+Vehicle class {
+    Needs to {
+        - Store all vehicle information.
+        - Allow retrieval of data as required.
+        - Be able to link vehicle to customer number. (Allow Customer linking)
+        - Store repair history of vehicle. (Allow RO linking)
+    }
+    variables {
+        Paired Customer Number
+        VIN
+        Year
+        Make
+        Model
+        Color
+        Last Mileage
+        Current Mileage
+        List of Previous RO's
+        Notes
+    }
+}
+
+RepairOrder class {
+    Needs to {
+        - Create RO and attach customer and vehicle to RO. (Customer/Vehicle linking)
+        - Create unique RO # for each instance.
+        - Initialize date/time created and track time to close/inactive status.
+        - Allow change of status (No tech assigned, tech assigned, tech working, work complete,
+            ready for delivery, vehicle picked up, attention to tech, attention to parts,
+            attention to advisor)
+        - Allow setting RO active/inactive (Inactive ticket is permanently locked after 24hr)
+        - Allow ticket locking (Uneditable)
+        - Allow assigning to advisor / technician
+        - Tracks jobs on ticket
+        - Track notes, allows previous notes to not be edited.
+    }
+    variables {
+        Repair Order Number
+        Tag Number
+        Attached Vehicle
+        Attached Customer
+        Time Due
+        Time Created
+        Time Closed
+        Elapsed Time
+        Date Created
+        Date Closed
+        Elapsed Date
+        Active/Inactive bool
+        Ticket locked bool
+        Status (separate class)
+        List of Jobs (inner class)
+        Service Advisor Assigned
+        Technician Assigned
+        Notes
+    }
+}
+
+Technician class {
+    Needs to {
+        - Assign employee #, and default information
+        - Track skill level (A- Master Tech, B- Line tech, C- Maintenance, D- Express Tech, E- Trainee)
+        - Track notes about technician (Performance or anything else)
+    }
+    variables {
+        Employee #
+        Name
+        Address
+        Phone Number
+        Email
+        Skill Level
+        Notes
+    }
+}
+
+Advisor class {
+    Needs to {
+        - Assign employee #, and default information
+        - Track notes about adviser
+    }
+    variables {
+        employee #
+        name
+        address
+        phone number
+        email
+        notes
+    }
+}
+
+Notes class {
+    Needs to {
+        - Track date/time of note adding
+        - Save input information and set uneditable
+        - Track who made add
+        - Allow retrieval by authorized personnel
+    }
+    variables {
+        Note type (RO, Customer, Tech, Advisor, ect)
+        Date
+        Time
+        Author
+        Note String
+    }
+}
+
