@@ -25,7 +25,7 @@ public class Controller {
         repairOrderHashMap = new HashMap<>();
         adviserHashMap = new HashMap<>();
         technicianHashMap = new HashMap<>();
-        // End Hasmap initialization
+        // End Hashmap initialization
         
         
         // Initial System setup Data
