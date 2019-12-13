@@ -43,9 +43,9 @@ public class Controller {
         customerHashMap.put(testCust2.getCustomerNumber(), testCust2);
         customerHashMap.put(testCust3.getCustomerNumber(), testCust3);
         
-        Vehicle testVeh1 = new Vehicle(testCust1.getCustomerNumber(), "12345678901234567",2016, "Honda","HR-V","White",51250,"This is Mike's veh note");
-        Vehicle testVeh2 = new Vehicle(testCust2.getCustomerNumber(),"76543210987654321", 2013, "Mazda", "6 Touring", "Blue", 98000, "This is Cassy's veh note");
-        Vehicle testVeh3 = new Vehicle(testCust3.getCustomerNumber(),"12345678907654321", 2014, "Buick", "Escalade", "Grey", 48320, "Dan's veh note");
+        Vehicle testVeh1 = new Vehicle("12345678901234567","2016", "Honda","HR-V","White","51250","This is Mike's veh note");
+        Vehicle testVeh2 = new Vehicle("76543210987654321", "2013", "Mazda", "6 Touring", "Blue", "98000", "This is Cassy's veh note");
+        Vehicle testVeh3 = new Vehicle("12345678907654321", "2014", "Buick", "Escalade", "Grey", "48320", "Dan's veh note");
         vehicleHashMap.put(testVeh1.getShortId(), testVeh1);
         vehicleHashMap.put(testVeh2.getShortId(), testVeh2);
         vehicleHashMap.put(testVeh3.getShortId(), testVeh3);
@@ -112,11 +112,35 @@ public class Controller {
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
-//            Customer newCustomer = controller.addCustomer();
+            Customer newCustomer = controller.addCustomer();
         }
         
     }
     
+    @FXML public void showNewVehicleDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Add New Vehicle");
+        dialog.setHeaderText("Use this dialog to add a new vehicle");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("newVehicleDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Could not load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            DialogController controller = fxmlLoader.getController();
+            Vehicle newVehicle = controller.addVehicle();
+        }
+    }
     
     /** setRowStatus is a function designed to change the row color based on current status.
      *

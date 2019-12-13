@@ -12,10 +12,10 @@ public class RepairOrder {
     private StatusOptions currentStatus = StatusOptions.NO_STATUS;
     
     private Vehicle vehicle;
-    private int vehicleYear;
+    private String vehicleYear;
     private String vehicleMake;
     private String vehicleModel;
-    private int vehicleMileage;
+    private String vehicleMileage;
     private Customer customer;
     private String customerName;
     private int customerNumber;
@@ -68,7 +68,7 @@ public class RepairOrder {
         this.technicianNumber = this.tech.getCustomerNumber();
     }
     
-    public int getVehicleYear() {
+    public String getVehicleYear() {
         return vehicleYear;
     }
     
@@ -80,7 +80,7 @@ public class RepairOrder {
         return vehicleModel;
     }
     
-    public int getVehicleMileage() {
+    public String getVehicleMileage() {
         return vehicleMileage;
     }
     

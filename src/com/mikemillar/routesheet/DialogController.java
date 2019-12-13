@@ -1,9 +1,6 @@
 package com.mikemillar.routesheet;
 
-import com.mikemillar.routesheet.DataModels.Customer;
-import com.mikemillar.routesheet.DataModels.CustomerData;
-import com.mikemillar.routesheet.DataModels.RepairOrder;
-import com.mikemillar.routesheet.DataModels.Vehicle;
+import com.mikemillar.routesheet.DataModels.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -21,7 +18,15 @@ public class DialogController {
     @FXML private TextField cellNumberField;
     @FXML private TextField faxNumberField;
     @FXML private TextField otherNumberField;
-    @FXML private TextArea notesField;
+    @FXML private TextArea custNotesField;
+    
+    @FXML private TextField vinField;
+    @FXML private TextField yearField;
+    @FXML private TextField makeField;
+    @FXML private TextField modelField;
+    @FXML private TextField colorField;
+    @FXML private TextField mileageField;
+    @FXML private TextArea vehNotesField;
     
     public Customer addCustomer() {
         String name = customerNameField.getText().trim();
@@ -35,7 +40,7 @@ public class DialogController {
         String cell = cellNumberField.getText().trim();
         String fax = faxNumberField.getText().trim();
         String other = otherNumberField.getText().trim();
-        String notes = notesField.getText().trim();
+        String notes = custNotesField.getText().trim();
         
         Customer newCustomer = new Customer(name, add1, add2, city, state, zip, home, work, cell, fax, other, notes);
         CustomerData.getInstance().addCustomer(newCustomer);
@@ -43,7 +48,17 @@ public class DialogController {
     }
     
     public Vehicle addVehicle() {
-        return null;
+        String vin = vinField.getText().trim();
+        String year = yearField.getText().trim();
+        String make = makeField.getText().trim();
+        String model = modelField.getText().trim();
+        String color = colorField.getText().trim();
+        String mileage = mileageField.getText().trim();
+        String notes = vehNotesField.getText().trim();
+        
+        Vehicle newVehicle = new Vehicle(vin,year,make, model,color,mileage, notes);
+        VehicleData.getInstance().addVehicle(newVehicle);
+        return newVehicle;
     }
     
     public RepairOrder addRepairOrder() {

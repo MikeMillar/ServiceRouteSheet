@@ -40,7 +40,7 @@
                 <Label text="Other:" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
                 <TextField fx:id="otherNumberField" GridPane.rowIndex="5" GridPane.columnIndex="3"/>
                 <Label text="Notes" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                <TextArea fx:id="notesField" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="4"/>
+                <TextArea fx:id="custNotesField" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="4"/>
 
             </GridPane>
         </VBox>

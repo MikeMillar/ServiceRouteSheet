@@ -6,16 +6,15 @@ public class Vehicle {
     
     private int ownedByCustNum;
     private String VIN;
-    private int year;
+    private String year;
     private String make;
     private String model;
     private String color;
-    private int lastMileage;
+    private String lastMileage;
     private String notes;
     private ArrayList<RepairOrder> linkedROs;
     
-    public Vehicle(int ownedByCustNum, String VIN, int year, String make, String model, String color, int mileage, String notes) {
-        this.ownedByCustNum = ownedByCustNum;
+    public Vehicle(String VIN, String year, String make, String model, String color, String mileage, String notes) {
         this.VIN = VIN.toUpperCase();
         this.year = year;
         this.make = make;
@@ -38,7 +37,7 @@ public class Vehicle {
         this.color = color;
     }
     
-    public void setLastMileage(int lastMileage) {
+    public void setLastMileage(String lastMileage) {
         this.lastMileage = lastMileage;
     }
     
@@ -54,7 +53,7 @@ public class Vehicle {
         return VIN;
     }
     
-    public int getYear() {
+    public String getYear() {
         return year;
     }
     
@@ -70,7 +69,7 @@ public class Vehicle {
         return color;
     }
     
-    public int getLastMileage() {
+    public String getLastMileage() {
         return lastMileage;
     }
     

@@ -15,7 +15,7 @@
                     <items>
                         <MenuItem text="New Customer" onAction="#showNewCustomerDialog"/>
                         <SeparatorMenuItem/>
-                        <MenuItem text="New Vehicle"/>
+                        <MenuItem text="New Vehicle" onAction="#showNewVehicleDialog"/>
                         <SeparatorMenuItem/>
                         <MenuItem text="New Repair Order"/>
                         <SeparatorMenuItem/>
