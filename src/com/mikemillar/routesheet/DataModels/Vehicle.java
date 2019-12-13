@@ -26,6 +26,9 @@ public class Vehicle {
     }
     
     public String getShortId() {
+        if (this.VIN.length() < 17) {
+            return null;
+        }
         return this.getVIN().substring(9);
     }
     
