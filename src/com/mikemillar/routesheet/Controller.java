@@ -2,8 +2,8 @@ package com.mikemillar.routesheet;
 
 import com.mikemillar.routesheet.DataModels.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -17,6 +17,7 @@ public class Controller {
     private HashMap<Integer, Technician> technicianHashMap;
     
     @FXML private TableView<RepairOrder> activeTable;
+    @FXML private TableColumn<RepairOrder, RepairOrder.StatusOptions> statusCol;
     
     public void initialize() {
         // Initializing Hashmaps
@@ -67,11 +68,11 @@ public class Controller {
         // End Test Data Initialization
         
         // Value Testing
-        System.out.println(customerHashMap.toString());
-        System.out.println();
-        System.out.println(vehicleHashMap.toString());
-        System.out.println();
-        System.out.println(repairOrderHashMap.toString());
+//        System.out.println(customerHashMap.toString());
+//        System.out.println();
+//        System.out.println(vehicleHashMap.toString());
+//        System.out.println();
+//        System.out.println(repairOrderHashMap.toString());
         // End Value Testing
         
         // Applying data to table
@@ -79,8 +80,40 @@ public class Controller {
         activeTable.setItems(RepairOrderData.getInstance().getActiveROList());
         // End data application to table
         
+        testRO1.setCurrentStatus(RepairOrder.StatusOptions.TECH_WORKING);
+        setRowStatus(statusCol);
     }
-
-
+    
+    
+    /** setRowStatus is a function designed to change the row color based on current status.
+     *
+     * !!! Still needs work to style things correctly (text color, bold selected, add all status effects)
+     *
+     * @param status
+     */
+    private void setRowStatus(TableColumn<RepairOrder, RepairOrder.StatusOptions> status) {
+        status.setCellFactory(column -> {
+            return new TableCell<RepairOrder, RepairOrder.StatusOptions>() {
+                @Override
+                protected void updateItem(RepairOrder.StatusOptions item, boolean empty) {
+                    super.updateItem(item, empty);
+                    
+                    setText(empty ? "" : getItem().toString());
+                    setGraphic(null);
+    
+                    TableRow<RepairOrder> currentRow = getTableRow();
+                    
+                    if (!isEmpty()) {
+                        if (item == RepairOrder.StatusOptions.TECH_WORKING) {
+                            currentRow.setStyle("-fx-background-color: green");
+                        } else {
+                            currentRow.setStyle("-fx-background-color: white");
+                        }
+                    }
+                    
+                }
+            };
+        });
+    }
 
 }

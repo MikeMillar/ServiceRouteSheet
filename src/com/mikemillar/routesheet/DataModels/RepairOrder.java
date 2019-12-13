@@ -7,6 +7,10 @@ public class RepairOrder {
     
     private static int repairOrders = 0;
     
+    public enum StatusOptions {NO_STATUS, ATTN_TECH, ATTN_ADV, ATTN_PARTS, TECH_WORKING, VEH_COMPLETE,
+        VEH_READY_FOR_DEL, VEH_PICK_UP, PARTS_WORKING, PARTS_HOLD, AUTH_HOLD, REC_DECLINED}
+    private StatusOptions currentStatus = StatusOptions.NO_STATUS;
+    
     private Vehicle vehicle;
     private int vehicleYear;
     private String vehicleMake;
@@ -27,7 +31,6 @@ public class RepairOrder {
     private LocalDateTime timeClosed;
     private LocalDateTime timeDue;
     private LocalDateTime elapsedTime;
-    private VehicleStatus currentStatus;
     private String notes;
     private boolean isWaiter;
     private boolean isLocked;
@@ -133,7 +136,7 @@ public class RepairOrder {
         this.timeDue = timeDue;
     }
     
-    public void setCurrentStatus(VehicleStatus currentStatus) {
+    public void setCurrentStatus(StatusOptions currentStatus) {
         this.currentStatus = currentStatus;
     }
     
@@ -193,7 +196,7 @@ public class RepairOrder {
         return elapsedTime;
     }
     
-    public VehicleStatus getCurrentStatus() {
+    public StatusOptions getCurrentStatus() {
         return currentStatus;
     }
     

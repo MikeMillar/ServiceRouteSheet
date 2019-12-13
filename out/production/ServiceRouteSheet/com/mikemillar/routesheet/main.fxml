@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikemillar.routesheet.Controller">
     <top>
 <!--    Used to Main System Toolbars-->
@@ -29,62 +29,67 @@
             <TableView fx:id="activeTable" VBox.vgrow="ALWAYS">
 <!--            Main Display for ROs-->
                 <columnResizePolicy>
-                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
                 <columns>
-                    <TableColumn text="RO #">
+                    <TableColumn fx:id="repairOrderNumCol" text="RO #">
                         <cellValueFactory>
-                            <PropertyValueFactory property="repairOrderNumber"/>
+                            <PropertyValueFactory property="repairOrderNumber" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Tag #">
+                    <TableColumn fx:id="tagCol" text="Tag #">
                         <cellValueFactory>
-                            <PropertyValueFactory property="tagNumber"/>
+                            <PropertyValueFactory property="tagNumber" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Year">
+                    <TableColumn fx:id="yearCol" text="Year">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleYear"/>
+                            <PropertyValueFactory property="vehicleYear" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Make">
+                    <TableColumn fx:id="makeCol" text="Make">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleMake"/>
+                            <PropertyValueFactory property="vehicleMake" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Model">
+                    <TableColumn fx:id="modelCal" text="Model">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleModel"/>
+                            <PropertyValueFactory property="vehicleModel" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Mileage">
+                    <TableColumn fx:id="mileageCol" text="Mileage">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleMileage"/>
+                            <PropertyValueFactory property="vehicleMileage" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Customer Name">
+                    <TableColumn fx:id="customerNameCol" text="Customer Name">
                         <cellValueFactory>
-                            <PropertyValueFactory property="customerName"/>
+                            <PropertyValueFactory property="customerName" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Adviser">
+                    <TableColumn fx:id="statusCol" text="Vehicle Status">
                         <cellValueFactory>
-                            <PropertyValueFactory property="adviserName"/>
+                            <PropertyValueFactory property="currentStatus" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Technician">
+                    <TableColumn fx:id="adviserCol" text="Adviser">
                         <cellValueFactory>
-                            <PropertyValueFactory property="technicianName"/>
+                            <PropertyValueFactory property="adviserName" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Time Due">
+                    <TableColumn fx:id="techCol" text="Technician">
                         <cellValueFactory>
-                            <PropertyValueFactory property="timeDue"/>
+                            <PropertyValueFactory property="technicianName" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Elapsed Time">
+                    <TableColumn fx:id="timeDueCol" text="Time Due">
                         <cellValueFactory>
-                            <PropertyValueFactory property="elapsedTime"/>
+                            <PropertyValueFactory property="timeDue" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="elapsedCol" text="Elapsed Time">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="elapsedTime" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
