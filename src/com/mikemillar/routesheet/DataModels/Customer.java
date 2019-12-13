@@ -26,6 +26,16 @@ public class Customer {
         this.vehicles = new ArrayList<Vehicle>();
     }
     
+    public Customer(String name, String add1, String add2, String city, String state, String zip,
+                    String home, String work, String cell, String fax, String other, String notes) {
+        this.customerNumber = ++customers;
+        this.name = name;
+        this.address = new Address(add1, add1, city, state, zip);
+        this.phones = new Phone(home, work, cell, fax, other);
+        this.vehicles = new ArrayList<Vehicle>();
+        this.notes = notes;
+    }
+    
     public static int getCustomers() {
         return customers;
     }
@@ -109,13 +119,13 @@ public class Customer {
         private String address2;
         private String city;
         private String state;
-        private int zipCode;
+        private String zipCode;
         
         private Address () {
-            this(null, null, null, null, 0);
+            this(null, null, null, null, null);
         }
         
-        private Address (String address, String address2, String city, String state, int zip) {
+        private Address (String address, String address2, String city, String state, String zip) {
             this.address = address;
             this.address2 = address2;
             this.city = city;
@@ -155,11 +165,11 @@ public class Customer {
             this.state = state;
         }
     
-        public int getZipCode() {
+        public String getZipCode() {
             return zipCode;
         }
     
-        public void setZipCode(int zipCode) {
+        public void setZipCode(String zipCode) {
             this.zipCode = zipCode;
         }
     }

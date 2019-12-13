@@ -2,11 +2,15 @@ package com.mikemillar.routesheet;
 
 import com.mikemillar.routesheet.DataModels.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Optional;
 
 public class Controller {
     
@@ -16,6 +20,7 @@ public class Controller {
     private HashMap<Integer, Adviser> adviserHashMap;
     private HashMap<Integer, Technician> technicianHashMap;
     
+    @FXML private BorderPane mainBorderPane;
     @FXML private TableView<RepairOrder> activeTable;
     @FXML private TableColumn<RepairOrder, RepairOrder.StatusOptions> statusCol;
     
@@ -68,11 +73,11 @@ public class Controller {
         // End Test Data Initialization
         
         // Value Testing
-//        System.out.println(customerHashMap.toString());
-//        System.out.println();
-//        System.out.println(vehicleHashMap.toString());
-//        System.out.println();
-//        System.out.println(repairOrderHashMap.toString());
+        System.out.println(customerHashMap.toString());
+        System.out.println();
+        System.out.println(vehicleHashMap.toString());
+        System.out.println();
+        System.out.println(repairOrderHashMap.toString());
         // End Value Testing
         
         // Applying data to table
@@ -82,6 +87,34 @@ public class Controller {
         
         testRO1.setCurrentStatus(RepairOrder.StatusOptions.TECH_WORKING);
         setRowStatus(statusCol);
+    }
+    
+    
+    
+    @FXML public void showNewCustomerDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Add New Customer");
+        dialog.setHeaderText("Use this dialog to add a new customer.");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("newCustomerDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Could not load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+    
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            DialogController controller = fxmlLoader.getController();
+//            Customer newCustomer = controller.addCustomer();
+        }
+        
     }
     
     
@@ -107,7 +140,7 @@ public class Controller {
                         if (item == RepairOrder.StatusOptions.TECH_WORKING) {
                             currentRow.setStyle("-fx-background-color: green");
                         } else {
-                            currentRow.setStyle("-fx-background-color: white");
+//                            currentRow.setStyle("-fx-background-color: white");
                         }
                     }
                     

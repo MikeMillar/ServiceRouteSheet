@@ -4,7 +4,8 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikemillar.routesheet.Controller">
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikemillar.routesheet.Controller"
+    fx:id="mainBorderPane">
     <top>
 <!--    Used to Main System Toolbars-->
         <VBox>
@@ -12,6 +13,12 @@
 <!--            Main Menu Function Bar-->
                 <Menu text="File">
                     <items>
+                        <MenuItem text="New Customer" onAction="#showNewCustomerDialog"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="New Vehicle"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="New Repair Order"/>
+                        <SeparatorMenuItem/>
                         <MenuItem text="Exit" />
                     </items>
                 </Menu>

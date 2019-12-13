@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mikemillar.routesheet.DialogController"
+            prefHeight="400.0" prefWidth="600.0">
+    <content>
+
+
+        <VBox>
+            <GridPane hgap="10" vgap="10" alignment="CENTER">
+                <Label text="Customer Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="customerNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Street Address:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="address1Field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Address Two:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="address2Field" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="City:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="cityField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="State:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="stateField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label text="Zip Code:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="zipField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <Label text="Phone Numbers:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <Label text="Home:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="homeNumberField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                <Label text="Work:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <TextField fx:id="workNumberField" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                <Label text="Cell:" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                <TextField fx:id="cellNumberField" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+                <Label text="Fax:" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+                <TextField fx:id="faxNumberField" GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+                <Label text="Other:" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+                <TextField fx:id="otherNumberField" GridPane.rowIndex="5" GridPane.columnIndex="3"/>
+                <Label text="Notes" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <TextArea fx:id="notesField" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="4"/>
+
+            </GridPane>
+        </VBox>
+
+
+    </content>
+
+</DialogPane>
